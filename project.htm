@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Souled Store Clone</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #000;
+      color: #fff;
+    }
+
+    .top-bar {
+      background: #000;
+      color: #ff2d2d;
+      text-align: center;
+      padding: 8px;
+      font-size: 14px;
+      font-weight: bold;
+      border-bottom: 1px solid #222;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      border-bottom: 1px solid #222;
+      background: #000;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      width: 120px;
+    }
+
+    .navbar nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .navbar nav a:hover {
+      color: #ff2d2d;
+    }
+
+    .nav-icons {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .nav-icons input {
+      padding: 6px 10px;
+      border-radius: 4px;
+      border: 1px solid #444;
+      background: #111;
+      color: #fff;
+      outline: none;
+    }
+
+    .nav-icons input::placeholder {
+      color: #aaa;
+    }
+
+    .nav-icons input:focus {
+      border-color: #ff2d2d;
+    }
+
+    .nav-icons span {
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .nav-icons span:hover {
+      color: #ff2d2d;
+    }
+
+    .hero {
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+
+  background: linear-gradient(
+    135deg,
+    #000000 0%,
+    #120000 25%,
+    #2a0000 50%,
+    #120000 75%,
+    #000000 100%
+  );
+}
+
+    .hero h1 {
+      .hero h1 {
+  font-size: 50px;
+  color: #ffffff;
+  width: 75%;
+  max-width: 900px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(0,0,0,0.85),
+      rgba(0,0,0,0.35),
+      rgba(0,0,0,0.85)
+    ),
+    url("https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/banner-images/HP_1UbZQH4.jpg?w=1500&dpr=2");
+
+  background-size: cover;       
+  background-position: center;
+  background-repeat: no-repeat;
+
+  border-radius: 12px;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.9);
+}
+
+    }
+
+    .hero p {
+      margin: 18px 0;
+      font-size: 18px;
+      color: #ccc;
+    }
+
+    .hero button {
+      padding: 12px 32px;
+      border: none;
+      background: #ff2d2d;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .hero button:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    .categories {
+      display: flex;
+      justify-content: space-around;
+      padding: 40px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .category {
+      padding: 25px 40px;
+      background: #111;
+      border: 1px solid #222;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .category:hover {
+      background: #ff2d2d;
+      color: #000;
+    }
+
+    .products {
+      padding: 50px 40px;
+    }
+
+    .products h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 32px;
+      color: #ff2d2d;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+    }
+
+    .product-card {
+      background: #111;
+      border: 1px solid #222;
+      text-align: center;
+      padding: 15px;
+      transition: transform 0.3s, border 0.3s;
+    }
+
+    .product-card:hover {
+      transform: scale(1.05);
+      border-color: #ff2d2d;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+
+    .product-card h3 {
+      margin: 10px 0;
+    }
+
+    .product-card p {
+      color: #ff2d2d;
+      font-weight: bold;
+    }
+
+    .product-card button {
+      padding: 8px 15px;
+      border: none;
+      background: #ff2d2d;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .product-card button:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+      background: #000;
+      color: #aaa;
+      text-align: center;
+      border-top: 1px solid #222;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 34px;
+        padding: 20px;
+      }
+
+      .navbar {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .navbar nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-bar">
+    FREE SHIPPING ON ORDERS ABOVE ₹999
+  </div>
+
+  <header class="navbar">
+    <img class="logo" src="https://prod-img.thesouledstore.com/static/non-member-logo2.gif?w=100&dpr=2" alt="Logo">
+
+    <nav>
+      <a href="#">MEN</a>
+      <a href="#">WOMEN</a>
+      <a href="#">KIDS</a>
+      <a href="#">COLLECTIONS</a>
+      <a href="#">SALE</a>
+    </nav>
+
+    <div class="nav-icons">
+      <input type="text" placeholder="Search..." />
+      <span>❤️</span>
+      <span>🛒</span>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Wear Your Fandom</h1>
+    <p>Anime | Marvel | DC | Pop Culture</p>
+    <button>SHOP NOW</button>
+  </section>
+
+  <section class="categories">
+    <div class="category">T-Shirts</div>
+    <div class="category">Oversized</div>
+    <div class="category">Hoodies</div>
+    <div class="category">Accessories</div>
+  </section>
+
+  <section class="products">
+    <h2>Trending Products</h2>
+
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1764745419_1274815.jpg?w=300&dpr=2">
+        <h3>Graphic T-Shirt</h3>
+        <p>₹799</p>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1765521604_4719272.jpg?w=300&dpr=2">
+        <h3>Oversized Hoodie</h3>
+        <p>₹1499</p>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1765437890_3328932.jpg?w=300&dpr=2">
+        <h3>Printed Sweatshirt</h3>
+        <p>₹1299</p>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1750415838_4107800.jpg?w=300&dpr=2">
+        <h3>Casual Tee</h3>
+        <p>₹699</p>
+        <button>Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Souled Store Clone | Title Image Fixed</p>
+  </footer>
+</body>
+</html>
+
+
+
